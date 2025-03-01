@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the beauty of Sri Lanka with our travel guide. Discover destinations, activities, and more.">
+  <meta name="keywords" content="Sri Lanka, travel, tourism, destinations, activities">
+  <meta name="author" content="Sri Lanka Travel">
+  <title>Sri Lanka Travel - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="visa.html">Visa Consulting</a></li>
+      </ul>
+    </nav>
+    <h1>Welcome to Sri Lanka</h1>
+    <p>Explore the beauty of Sri Lanka</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" aria-label="Hero section">
+    <div class="video-overlay"></div>
+    <video autoplay muted loop id="hero-video" aria-label="Background video of Sri Lanka">
+      <source src="images\191283-889685028_small.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h2>Discover Sri Lanka</h2>
+      <p>Experience the culture, nature, and adventure.</p>
+      <a href="destinations.html" class="btn">Explore Destinations</a>
+    </div>
+  </section>
+
+  <!-- Visitor Reviews -->
+  <section class="reviews" aria-label="Visitor reviews">
+    <h2>Visitor Reviews</h2>
+    <div class="review-container">
+      <div class="review-card">
+        <img src="images\John Doe.jpg" alt="John Doe" loading="lazy">
+        <h3>John Doe</h3>
+        <p>"Sri Lanka is breathtaking! The people are friendly, and the food is amazing. Highly recommend visiting Sigiriya and Ella."</p>
+        <span class="rating">★★★★★</span>
+      </div>
+      <div class="review-card">
+        <img src="images\Jane Smith.jpg"" alt="Jane Smith" loading="lazy">
+        <h3>Jane Smith</h3>
+        <p>"I had an incredible time in Galle. The beaches are pristine, and the historic fort is a must-see. Can't wait to visit again!"</p>
+        <span class="rating">★★★★☆</span>
+      </div>
+      <div class="review-card">
+        <img src="images\Michael Brown.jpg" alt="Michael Brown" loading="lazy">
+        <h3>Michael Brown</h3>
+        <p>"The wildlife in Yala National Park is unforgettable. Saw leopards, elephants, and so much more. Truly a once-in-a-lifetime experience."</p>
+        <span class="rating">★★★★★</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity Map -->
+  <section class="activity-map" aria-label="Activity map">
+    <h2>Explore Activities in Sri Lanka</h2>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+  </section>
+
+   <!-- Footer -->
+   <footer>
+    <div class="footer-content">
+      <!-- Contact Details -->
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><strong>Email:</strong> <a href="mailto:info@srilankatravel.com">info@srilankatravel.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+94112345678">+94 112 345 678</a></p>
+        <p><strong>Address:</strong> 123 Colombo Street, Colombo, Sri Lanka</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://facebook.com/srilankatravel" target="_blank" aria-label="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a></li>
+          <li><a href="https://twitter.com/srilankatravel" target="_blank" aria-label="Twitter"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+          <li><a href="https://instagram.com/srilankatravel" target="_blank" aria-label="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+          <li><a href="https://youtube.com/srilankatravel" target="_blank" aria-label="YouTube"><img src="images/youtube-icon.png" alt="YouTube"></a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2023 Sri Lanka Travel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chatbot">Chat</button>
+  <div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header">
+      <h3>Travel Assistant</h3>
+      <button id="chatbot-close" class="chatbot-close" aria-label="Close chatbot">×</button>
+    </div>
+    <div id="chatbot-body" class="chatbot-body">
+      <p>Hello! How can I help you today?</p>
+    </div>
+    <input type="text" id="chatbot-input" placeholder="Type your message..." aria-label="Chatbot input">
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script>
+    // Initialize the map
+    document.addEventListener("DOMContentLoaded", () => {
+      const map = L.map('map').setView([7.8731, 80.7718], 7); // Centered on Sri Lanka
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      const activities = [
+        { name: "Sigiriya Rock Fortress", location: [7.9569, 80.7597], description: "Ancient rock fortress with stunning views." },
+        { name: "Ella", location: [6.8696, 81.0463], description: "Beautiful hills and waterfalls." },
+        { name: "Yala National Park", location: [6.3728, 81.5195], description: "Famous for leopards and wildlife." },
+        { name: "Galle Fort", location: [6.0259, 80.2167], description: "Historic fort with coastal charm." }
+      ];
+
+      activities.forEach(activity => {
+        const marker = L.marker(activity.location).addTo(map);
+        marker.bindPopup(`<b>${activity.name}</b><br>${activity.description}`);
+      });
+    });
+  </script>
+
+  <!-- Chatbot Script -->
+  <script src="chatbot.js" defer></script>
+</body>
+</html>
