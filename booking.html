@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Lanka Travel - Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <h1>Book Your Trip</h1>
+    <p>Plan your adventure in Sri Lanka</p>
+  </header>
+
+  <section class="booking-form">
+    <h2>Reservation Form</h2>
+    <form id="booking-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="date">Travel Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="destination">Destination:</label>
+      <select id="destination" name="destination" required>
+        <option value="sigiriya">Sigiriya</option>
+        <option value="ella">Ella</option>
+        <option value="galle">Galle</option>
+      </select>
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" min="1" required>
+
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <!-- Contact Details -->
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><strong>Email:</strong> <a href="mailto:info@srilankatravel.com">info@srilankatravel.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+94112345678">+94 112 345 678</a></p>
+        <p><strong>Address:</strong> 123 Colombo Street, Colombo, Sri Lanka</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://facebook.com/srilankatravel" target="_blank" aria-label="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a></li>
+          <li><a href="https://twitter.com/srilankatravel" target="_blank" aria-label="Twitter"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+          <li><a href="https://instagram.com/srilankatravel" target="_blank" aria-label="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+          <li><a href="https://youtube.com/srilankatravel" target="_blank" aria-label="YouTube"><img src="images/youtube-icon.png" alt="YouTube"></a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2023 Sri Lanka Travel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Handle form submission
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for booking with us! We will contact you shortly.');
+    });
+  </script>
+</body>
+</html>

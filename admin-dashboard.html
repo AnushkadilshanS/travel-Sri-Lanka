@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Admin Dashboard</h1>
+  </header>
+
+  <section class="admin-content">
+    <h2>Welcome, Admin!</h2>
+    <p>Manage your travel website here.</p>
+
+    <!-- Sales Overview (Pie Chart) -->
+    <div class="dashboard-section">
+      <h3>Sales Overview</h3>
+      <canvas id="salesChart"></canvas>
+    </div>
+
+    <!-- Bookings Overview (Bar Graph) -->
+    <div class="dashboard-section">
+      <h3>Bookings Overview</h3>
+      <canvas id="bookingsChart"></canvas>
+    </div>
+
+    <!-- Update/Upload Products -->
+    <div class="dashboard-section">
+      <h3>Update/Upload Products</h3>
+      <form id="product-form">
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" required>
+
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" required>
+
+        <label for="product-image">Upload Image:</label>
+        <input type="file" id="product-image" accept="image/*" required>
+
+        <button type="submit" class="btn">Add Product</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <!-- Contact Details -->
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><strong>Email:</strong> <a href="mailto:info@srilankatravel.com">info@srilankatravel.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+94112345678">+94 112 345 678</a></p>
+        <p><strong>Address:</strong> 123 Colombo Street, Colombo, Sri Lanka</p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="https://facebook.com/srilankatravel" target="_blank" aria-label="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a></li>
+          <li><a href="https://twitter.com/srilankatravel" target="_blank" aria-label="Twitter"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+          <li><a href="https://instagram.com/srilankatravel" target="_blank" aria-label="Instagram"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+          <li><a href="https://youtube.com/srilankatravel" target="_blank" aria-label="YouTube"><img src="images/youtube-icon.png" alt="YouTube"></a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2023 Sri Lanka Travel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sample Data for Charts
+    const salesData = {
+      labels: ['Souvenirs', 'Tea', 'Spices'],
+      datasets: [{
+        label: 'Sales',
+        data: [300, 150, 100],
+        backgroundColor: ['#ff6f61', '#6f61ff', '#61ff6f'],
+      }]
+    };
+
+    const bookingsData = {
+      labels: ['Sigiriya', 'Ella', 'Galle'],
+      datasets: [{
+        label: 'Bookings',
+        data: [50, 30, 20],
+        backgroundColor: '#ff6f61',
+      }]
+    };
+
+    // Sales Pie Chart
+    const salesChart = new Chart(document.getElementById('salesChart'), {
+      type: 'pie',
+      data: salesData,
+    });
+
+    // Bookings Bar Chart
+    const bookingsChart = new Chart(document.getElementById('bookingsChart'), {
+      type: 'bar',
+      data: bookingsData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // Handle Product Form Submission
+    document.getElementById('product-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const productName = document.getElementById('product-name').value;
+      const productPrice = document.getElementById('product-price').value;
+      const productImage = document.getElementById('product-image').files[0];
+
+      // Simulate adding product (you can send this data to a backend)
+      alert(`Product Added: ${productName}, Price: $${productPrice}`);
+      console.log('Uploaded Image:', productImage);
+
+      // Clear form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
